@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JackieFrosT HomePage</title>
+        <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/Projects.css" rel="stylesheet" type="text/css"/>
+        <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
+    </head>
+    
+    
+    
+    <body>
+        
+        
+    <div claas="content">   
+        
+        
+        <div class="container">
+            <h2>Peronsal Side Projects</h2><br>
+            <h3>1. MineSweeper Game -- Xcode9/Swift</h3>
+            <div class="box first">
+                <div class="image">
+                    <img src="../img/mine1.png">
+                    <div class="desc">Loading Page</div>
+                </div>
+            </div>
+            
+            <div class="box second">
+                <div class="image">
+                    <img src="../img/mine3.png">
+                    <div class="desc">Choosing Difficulty</div>
+                </div>
+            </div>
+            
+            <div class="box third">
+                <div class="image">
+                    <img src="../img/mine4.png">
+                    <div class="desc">Losing State</div>
+                </div>
+            </div>
+            
+            <div class="box fourth">
+                <div class="image">
+                    <img src="../img/mine2.png">
+                    <div class="desc">Winning State</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+       
+        
+        <div class="container">
+            <h3>2. Tic-Tac-Toe -- Xcode9/Swift</h3>
+            <div class="box first">
+                <div class="image">
+                    <img src="../img/tic1.png">
+                    <div class="desc">Loading Page</div>
+                </div>
+            </div>
+            
+            <div class="box second">
+                <div class="image">
+                    <img src="../img/tic2.png">
+                    <div class="desc">Gaming State1</div>
+                </div>
+            </div>
+            
+            <div class="box third">
+                <div class="image">
+                    <img src="../img/tic3.png">
+                    <div class="desc">Gaming State2</div>
+                </div>
+            </div>
+        </div>
+        &nbsp;
+        
+        <div class="container">
+            <h2>School Group Projects</h2><br>
+            <div class="box first">
+                <div class="image">
+                    <img src="../img/cc3k.jpg">
+                    <div class="desc">CC3K 2D RPG GAME -- Coded/Designed/Tested in C++</div>
+                </div>
+            </div>
+            
+            <div class="box second">
+                <div class="image">
+                    <img src="../img/poly.jpg">
+                    <div class="desc">Algorithm Solving Polyominoes Problems -- Programmed/Tested in Racket</div>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+    </div> 
+        
+<!-- The Modal -->
+        <div id="myModal" class="modal">
+            <span class="close">x</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+        </div>
+
+        
+        <div class="topnav" id="homePageTopNav">
+            <ul>
+<!--                <li><img src="../img/head.png" width="70" height="70"></li>-->
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="AboutMe.html">ABOUT ME</a></li>
+                <li><a href="Experience.html">EXPERIENCE</a></li>
+                <li><a1>PROJECTS</a1></li>
+                <li><a href="Interest.html">INTEREST</a></li>
+            </ul>
+        </div>
+        
+        
+    
+    </body>
+    
+    
+    
+    
+    
+    
+    
+    <script>
+    
+    
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { modal.style = "display:none;";}
+
+// Get all images and insert the clicked image inside the modal
+// Get the content of the image description and insert it inside the modal image caption
+var images = document.getElementsByTagName('img');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+var i;
+for (i = 0; i < images.length; i++) {
+   images[i].onclick = function(){
+       modal.style.display = "block";
+       modalImg.src = this.src;
+       modalImg.alt = this.alt;
+       captionText.innerHTML = this.alt;
+   }
+}
+    
+    </script>
+    
+    
+</html>

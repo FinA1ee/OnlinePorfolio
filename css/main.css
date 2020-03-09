@@ -1,0 +1,95 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+
+
+
+body{
+    width: 100%;
+    margin:0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+.topnav{
+    top:0;
+    width:100%;
+    position:fixed;
+    background-color: #000;
+    overflow: hidden;
+    opacity: 0.6;
+    margin: 0 auto;
+}
+
+
+.topnav img{
+    position: fixed;
+    margin-top:-40px;
+    margin-left:-760px; 
+}
+
+
+.topnav ul {
+    margin-top:25px;
+    margin-bottom: 25px;
+    margin-right: 100px;
+    text-align:right;
+}
+.topnav ul li{
+    display:inline-flex;
+}
+
+.topnav ul li a1{
+    padding: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    color: #E6E6DC;
+    text-align: right;
+    text-decoration: overline;
+}
+.topnav ul li a{
+    padding: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    color: #E6E6DC;
+    text-align: right;
+}
+
+.topnav a:hover{
+    background-color:#ddd;
+    color: black;
+}
+
+.topnav a.active{
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+.image{
+    position:relative;
+    background-color: #000;
+    overflow: hidden;
+    opacity: 0.6;
+    margin: 0 auto;
+}
+
+.image a1{ 
+    margin-top:00px;
+
+}
+
+
+.chosen{
+    text-decoration: underline overline;
+}
+
+
+
+
+
+
+
+

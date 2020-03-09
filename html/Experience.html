@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JackieFrosT HomePage</title>
+        <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/Experience.css" rel="stylesheet" type="text/css"/>
+        <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
+    </head>
+
+
+
+    <body>
+
+
+    <div claas="content">
+
+
+        <div class="container">
+            <h2>Working Experience</h2>
+            <div class="box first">
+                <div class="image">
+                    <img src="../img/work.jpeg"
+                         alt="WEB DEVELOPER at Paragon Systems  Jan. 2018 - May. 2018<br>
+                              1. Responsible for optimizing website content/upgrading modules to improve Google SEO ranks.<br>
+                              2. Updated modules for video uploading and enabled blog deployment function on company websites.<br>
+                              3. Designed the user interface to ”contact us” page.<br>"
+                         width="300" height="200">
+                    <div class="desc">Full Stack Web Developer</div>
+                </div>
+            </div>
+
+            <div class="box second">
+                <div class="image">
+                    <img src="../img/java.jpg"
+                         alt="SOFTWARE DEVELOPER INTERN at Altairix Systems  May. 2019 - August. 2019<br>
+                              1. Work effectively with senior developers to manage complex design project for corporate clients.<br>
+                              2. Design and implement Java batch job for data importing.<br>
+                              3. Participate user interface development on Android studio.<br>
+                              4. Participate in Java web application developing/testing/debugging.<br>"
+
+                         width="300" height="200">
+                    <div class="desc">Software Developer Intern</div>
+                </div>
+            </div>
+
+            <div class="box third">
+                <div class="image">
+                    <img src="../img/aws.jpg"
+                         alt="AWS SOFTWARE DEVELOPER at Desire2Learn Sep. 2018 - Dec. 2018<br>
+                              1. Designed and developed features for the Brightspace Data Platform.
+                                (event-driven lambda architecture using AWS supporting 1000+events per second).<br>
+                              2. Implemented performance testing and improvements for real-time analytics dashboards.<br>
+                              3. Debugging and testing the token-based authentication system to maintain web security.<br>
+                              4. Worked on mapping the java objects to relational database and SQL queries to fetch the data from the database.<br>"
+                         width="300" height="200">
+                    <div class="desc">AWS Software Developer</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <h2>Campus Experience</h2>
+            <div class="box first">
+                <div class="image">
+                    <img src="../img/ted.png"
+                         alt="I joined the Ted Talk Translator Program in 2016 Nov,<br> 
+                              as a English/Chinese script translator.<br>
+                              I have translated more than 10 Ted xTalks so far.
+                              "
+                         width="300" height="200">
+                    <div class="desc">Ted Talk Translator</div>
+                </div>
+            </div>
+
+            <div class="box second">
+                <div class="image">
+                    <img src="../img/cssa.JPG"
+                         alt="I joined the KWCSSA student organization in 2016 Sept,<br>
+                              as a video editor in the marketing department.<br>
+                              My work is to create trailers and posters for several events,<br>
+                              such as New Year Gala / Voice of Waterloo."
+                         width="300" height="200">
+                    <div class="desc">UWaterloo KWCSSA</div>
+                </div>
+            </div>
+
+            <div class="box third">
+                <div class="image">
+                    <img src="../img/lime.jpg"
+                         alt="I became a crew member of limelight dancing club in 2017 June.<br>
+                              My work is to record video clips and do post-productions." width="300" height="200">
+                    <div class="desc">Limelight Dance Crew Editor</div>
+                </div>
+            </div>
+
+            <div class="box fourth">
+                <div class="image">
+                    <img src="../img/silicon.jpg"
+                         alt="In 2017 August, I created a 2D rpg game with my teammates.<br>
+                              The game was written in C++ and object-oriented programming concepts were applied."
+                         width="300" height="200">
+                    <div class="desc">Programming as a team</div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+
+<!-- The Modal -->
+        <div id="myModal" class="modal">
+            <span class="close">x</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+        </div>
+
+
+        <div class="topnav" id="homePageTopNav">
+            <ul>
+<!--                <li><img src="../img/head.png" width="70" height="70"></li>-->
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="AboutMe.html">ABOUT ME</a></li>
+                <li><a1>EXPERIENCE</a1></li>
+                <li><a href="Projects.html">PROJECTS</a></li>
+                <li><a href="Interest.html">INTEREST</a></li>
+            </ul>
+        </div>
+
+
+        </div>
+    </body>
+
+
+
+
+
+
+
+    <script>
+    
+    
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { modal.style = "display:none;";}
+
+// Get all images and insert the clicked image inside the modal
+// Get the content of the image description and insert it inside the modal image caption
+var images = document.getElementsByTagName('img');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+var i;
+for (i = 0; i < images.length; i++) {
+   images[i].onclick = function(){
+       modal.style.display = "block";
+       modalImg.src = this.src;
+       modalImg.alt = this.alt;
+       captionText.innerHTML = this.alt;
+   }
+}
+    
+    </script>
+    
+    
+</html>

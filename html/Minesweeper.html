@@ -1,0 +1,325 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mine Sweeper</title>
+<link rel="stylesheet" type="text/css" href="../css/Minesweeper.css">
+	
+</head>
+
+<body>
+	<h2>Welcome to MineSweeper</h2>
+	
+	<input type="submit" id="start" value="START" onclick="gameStart()">
+	
+	<div class="container" id="container" style="display: none;">
+	
+	<div class="game">
+		<table class="hintCol" id="hintCol"></table>
+		<table class="hint" id="hint"></table>
+		<table class="board" id="board"></table>
+	</div>
+		
+	<div class="panel">
+		<form>
+  		  <div>
+				<h4>Reveal/Flag A Cell</h4>
+				<p id="maxRow"></p>
+				<input type="text" id="rowInput" name="name">
+				<p id="maxCol"></p>
+			  <input type="text" id="colInput" name="name">
+		  </div>
+		  <br>
+		  <div>
+	    	<div>
+	    		<button id="revealMove" onclick="reveal_wrapper()">Reveal</button>
+		    	<button id="flagMove" onclick="flag()">Flag</button>
+		  </div>
+		  </div>
+		</form>
+	
+	
+		<div class="timer">
+			<h4>Timer</h4>
+			<p><span id="seconds">00</span>:<span id="tens">00</span></p>
+		</div> 
+	
+	
+		<div class="mineCounter">
+			<h4>Mine Remaining</h4>
+			<p><span id="mineCounter">0</span></p>
+		</div>
+
+		<div class="control">
+			<input type="submit" id="restart" style="display:none;" value="RESTART" onclick="generateBoard()"><br>
+			<input type="submit" id="pause" style="display:none;" value="PAUSE" onclick="gameStart()">
+		</div>
+	</div>
+	</div>
+
+	
+	
+	
+	<script>
+		'use strict'	
+		let board = []; // 2d array of cell objects
+		let boardHeight = 0;
+		let boardWidth = 0;
+		let mineCount;
+		let mineCells = []; // array of cell objects which are mines
+		let gameLog = "";
+		let numOfMove = 1;
+		// cell constructor 
+		function Cell(row, col){
+			this.row = row;
+			this.col = col;
+			this.adjMine = 0;
+			this.isReveal = false;
+			this.isMine = false;
+			this.isFlag = false;
+		}	
+		
+		
+		function getRandomInt(min, max) {
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+		}
+		
+		
+		function adjMines(x, y){
+			let count = 0;
+			 for(let i = x - 1; i <= x + 1; i++) {
+    			for(let j = y - 1; j <= y + 1; j++) {				
+      				if (i < boardHeight && j < boardWidth && i >= 0 && j >= 0 && board[i][j].isMine){
+						count++;
+					}
+				}
+			}
+			return count;
+		}
+		
+		
+		function gameStart(){
+			alert("Welcome to MineSweeper!");
+			document.getElementById("start").style.display = "none";
+			document.getElementById("container").style.display = "block";
+			document.getElementById("restart").style.display = "block";
+			document.getElementById("pause").style.display = "block";
+			generateBoard();
+			alert("Let's Start!");
+		}
+		
+		
+		function displayMine(){
+			document.getElementById("mineCounter").innerHTML = mineCount;
+		}
+		
+	
+		function generateBoard(){
+		    clearBoard();
+			while(true){
+				boardHeight = +prompt("Enter height of board, 0 - 10", '5');
+				boardWidth = +prompt("Enter width of board, 0 - 10", '5');
+				mineCount = +prompt("Enter number of mines", 5);
+				if(mineCount > boardHeight * boardWidth - 1){
+					alert("Too much mine!");
+					continue;
+				}
+				if(mineCount <= 0){
+					alert("Too few mine!")
+					continue;
+				}
+				document.getElementById("maxRow").innerHTML = "Row: Enter # from 1 - " + boardHeight;
+				document.getElementById("maxCol").innerHTML = "Col: Enter # from 1 - " + boardWidth;
+				for(let i = 0; i < boardHeight; i++){
+					let boardRow = []; // array of cell objects
+					for(let j = 0; j < boardWidth; j++){
+						boardRow.push(new Cell(i, j)); 
+					}
+					board.push(boardRow);
+				}
+				let hintColT = document.getElementById("hintCol");
+				for(let i = 0; i < boardHeight; i++){
+					let hintColRow = hintColT.insertRow(i);
+					let hintColCell = hintColRow.insertCell(0);
+					hintColCell.innerHTML = i+1;
+				}
+				
+				
+				
+				let hintT = document.getElementById("hint");
+				let hintRow = hintT.insertRow(0);
+				for(let i = 0; i < boardWidth; i++){
+					let hintCell = hintRow.insertCell(i);
+					hintCell.innerHTML = i+1;
+				}
+				
+				
+				let table = document.getElementById("board");
+				for(let i = 0; i < boardHeight; i++){
+					let myRow = table.insertRow(0);
+					for(let j = 0; j < boardWidth; j++){
+						let cell = myRow.insertCell(j);
+						//	cell.innerHTML = board[i][j].sym;
+					}
+				}
+				displayMine();
+				generateMine(mineCount);
+				displayBoard();
+				break;
+			}
+		}
+		
+				
+		function generateMine(mineCount){
+			let randNum;
+			let myRow;
+			let myCol;
+			for(let i = 0; i < mineCount; i++){
+				while(true){
+					randNum = getRandomInt(0, boardHeight * boardWidth);
+					myRow = Math.floor(randNum / boardWidth);
+					myCol = randNum % boardWidth;	
+					if(myCol != 0)myCol--;		
+					if(!board[myRow][myCol].isMine){
+						board[myRow][myCol].isMine = true;
+						mineCells.push(board[myRow][myCol]);
+						break;
+					}
+				}
+			}
+		}
+		
+		
+		function displayBoard(){
+			for(let i = 0; i < boardHeight; i++){
+				for(let j = 0; j < boardWidth; j++){
+					let sym;
+					if(board[i][j].isFlag){
+					   sym = "F";
+					} else if(board[i][j].isReveal){
+					   sym = board[i][j].adjMine;
+					} else{
+					   sym = "";
+					}
+					document.getElementById("board").rows[i].cells[j].innerHTML = sym;
+				}
+			}
+		}
+		
+		
+		function clearBoard(){
+			for(let i = 0; i < boardHeight; i++){
+				document.getElementById("board").deleteRow(0);
+			}
+			board = [];
+			mineCount = 0;
+			displayMine();
+		}
+		
+
+		function flag(){
+			let row = document.getElementById("rowInput").value;
+			let col = document.getElementById("colInput").value;
+			document.getElementById("rowInput").value = "";
+			document.getElementById("colInput").value = "";
+			if(row > boardHeight || row <= 0 || col > boardWidth || col <= 0){
+				alert("Invalid Input");
+				return;
+			}
+			if(board[row-1][col-1].isReveal){
+				alert("The cell is revealed, cannot put a flag");
+				return;
+			} else if(!board[row-1][col-1].isFlag){
+				board[row-1][col-1].isFlag = true;
+				gameLog += numOfMove + ". Plug a flag on cell (" + row + "," + col + ")."
+			} else{
+				board[row-1][col-1].isFlag = false;
+				gameLog += numOfMove + ". Remove a flag on cell (" + row + "," + col + ")."
+			}
+			numOfMove++;
+			displayBoard();
+			game_won();
+		}
+		
+	     
+		function reveal_wrapper(){
+			let row = document.getElementById("rowInput").value;
+			let col = document.getElementById("colInput").value;
+			document.getElementById("rowInput").value = "";
+			document.getElementById("colInput").value = "";
+			if(row > boardHeight || row <= 0 || col > boardWidth || col <= 0){
+				alert("Invalid Input");
+				return;
+			}
+			if(board[row-1][col-1].isMine){
+				alert("SORRY! YOU LOSE! ");
+				let cont = confirm("ANOTHER GAME?");
+				if(cont){
+					generateBoard();
+				}
+				return;
+			}
+			reveal(row-1, col-1);
+			numOfMove++;
+			game_won();
+			displayBoard();
+		}
+		
+		
+		
+		function revealAdj(x, y){
+			 for(let i = x - 1; i <= x + 1; i++) {
+    			for(let j = y - 1; j <= y + 1; j++) {				
+      				if (i < boardHeight && j < boardWidth && i >= 0 && j >= 0 && !board[i][j].isReveal) {
+						reveal(i, j);
+					} 
+				}
+			 }
+		}
+		
+		
+		
+		function reveal(row, col){
+			if(board[row][col].isFlag){
+				alert("The cell has a flag on it.");
+				return;
+			} else if(board[row][col].isMine){
+				return;
+			} else{
+				let num = adjMines(row, col);
+				board[row][col].adjMine = num;
+				board[row][col].isReveal = true;
+				if(num == 0){
+					revealAdj(row, col);
+				}
+			}
+		}
+		
+
+		function game_won(){
+			for(let i = 0; i < boardHeight; i++){
+				for(let j = 0; j < boardWidth; j++){
+					if(board[i][j].isMine && !board[i][j].isFlag){
+						return;
+					} else if(!board[i][j].isMine && !board[i][j].isReveal){
+						return;
+					}
+				}
+			}
+			alert("CONGRAGULATIONS! YOU WIN! ");
+			let cont = confirm("ANOTHER GAME?");
+			if(cont){
+				generateBoard();
+			}		
+		}
+		
+		
+	</script>
+
+
+
+
+</body>
+</html>

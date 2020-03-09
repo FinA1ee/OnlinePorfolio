@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JackieFrosT HomePage</title>
+        <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/Education.css" rel="stylesheet" type="text/css"/>
+        <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
+    </head>
+    
+    
+    
+    <body> 
+         <div class="topnav" id="homePageTopNav">
+            <ul>
+                <li><img src="../img/head.png" width="70" height="70"></li>
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="AboutMe.html">ABOUT ME</a></li>
+                <li><a>EDUCATION</a></li>
+                <li><a href="Experience.html">EXPERIENCE</a></li>
+                <li><a href="Interest.html">INTEREST</a></li>
+                <li><a href="ContactMe.html">IOS</a></li>
+            </ul>
+        </div>
+        
+        
+        <div class="edu">
+            <h3>Education Timeline</h3>
+        </div>
+            
+<!--
+        <div class="book">
+            <img src="../img/book.png" height="200" width="300">
+        </div>
+        
+        <div class="goose">
+            <img src="../img/goose.png" height="300" width="300">
+        </div>
+        
+        <div class="field">
+            <img src="../img/field.png" height="100" width="300">
+        </div>
+        
+        <div class="loo">
+            <img src="../img/waterloo.png" height="250" width="500">
+        </div>
+-->
+        
+        <section class="timeline">
+        <ul>
+            <li>
+                <div id="box1" class="box blurred-bg tinted">
+                    <time>2012 ~ 2014</time> 
+                    <time> JinLing High School, Jiangsu, China</time>
+                    <p> - Self-learned basic Swift language.<br>
+                        - Familier with ios development process.
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div id="box2" class="box blurred-bg tinted">
+                    <time>2014 ~ 2016</time> 
+                    <time>Fieldstone King's College School, Toronto</time>
+                    <p> - Studied basic knowledge of Turing and HTML5.<br>
+                        - Learned computer programming concepts.<br>
+                        - Participated in Ontario Programming Competition.
+                    </p>
+                </div>
+            </li>
+    
+            <li>
+                <div id="box3" class="box blurred-bg tinted">
+                    <time>2016 ~ Present</time> 
+                    <time>University of Waterloo, Waterloo</time>
+                    <p> - Candidate for Honours Bachelor of Computer Science, Honours, Co-operative Program.<br>
+                    </p>
+                </div>
+            </li>
+        </ul>
+        </section>
+        
+      
+    </body>
+    
+    <script>
+        (function() {
+
+  'use strict';
+
+  // define variables
+  var items = document.querySelectorAll(".timeline li");
+
+  // check if an element is in viewport
+  // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
+  function isElementInViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  function callbackFunc() {
+    for (var i = 0; i < items.length; i++) {
+      if (isElementInViewport(items[i])) {
+        items[i].classList.add("in-view");
+      }
+    }
+  }
+
+  // listen for events
+  window.addEventListener("load", callbackFunc);
+  window.addEventListener("resize", callbackFunc);
+  window.addEventListener("scroll", callbackFunc);
+
+})();
+    </script>>
+    
+</html>

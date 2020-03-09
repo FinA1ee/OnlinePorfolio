@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* CSS Document */
+	body{
+		height: 100%;
+		width: 1800px;
+	}
+	
+	.container{
+		 margin: auto;
+  		 padding: 10px;
+	}
+	
+	.hintCol{
+		text-align: center;
+		margin-left: 30px;
+		margin-top: 54px;
+		position: fixed;
+	}
+	
+	.hintCol td{
+		background-color:#41C58A;
+		width: 20px;
+		height: 22px;
+	}
+	
+	
+	
+	.hint{
+		margin-left: 100px;
+		margin-bottom: -74px;
+		text-align: center;
+	}
+	
+	.hint td{
+		background-color: #41C58A;
+		width: 21.5px;
+		height: 20px;
+	}
+	
+	
+	.board{
+   		margin: 80px;
+    	border: 20px solid #333;
+		text-align: center;
+	}
+	
+	.board td{
+		width: 20px;
+		height: 20px;
+		border: 1px solid black;
+		overflow: hidden;
+	}
+	
+
+	.game{
+		float: left;
+		width: 1000px;
+		height: 100%;
+		overflow: hidden;
+	}
+	
+	.panel{
+		float: right;
+		position: relative;
+		border: 10px solid black;
+		width: 400px;
+		text-align: center;
+		overflow: hidden;
+		font-family: Cambria, Hoefler Text, Liberation Serif, Times, Times New Roman, serif;
+	}

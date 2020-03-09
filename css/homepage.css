@@ -1,0 +1,162 @@
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10%;
+    background-color: #E6E6DC;   
+}
+
+
+
+
+
+
+
+
+.center {
+  letter-spacing: 2px;
+  min-width:1000px;
+  display: flex;
+  margin-left:100px;
+  margin-right:100px;
+  padding-right: 30px;
+    
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+}
+ 
+.center_img img{
+   border-style:double;
+   border-width: 2px;
+   border-radius: 10px;
+   margin: 35px;
+
+}
+
+.center_content{
+    width: 35%;
+    margin-left: 20px;
+    padding-right: 20px;
+}
+
+
+.center_content_title_text{
+/*    background-color: aquamarine;*/
+    font-size: 60px;
+    color: #00628B;
+    margin-top:25px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    margin-left: -3px;
+}
+
+
+.center_content_title_subText{
+/*    background-color: aquamarine;*/
+    font-size: 20px;
+    color: #00628B;
+    font-weight: 100;
+    margin-top:-5px;
+
+}
+
+
+.center_content_supporting-text{
+    font-size: 18px;
+    font-weight: 100;
+    margin-top:30px;
+}    
+
+.resume_button{
+    background-color: #00628B;
+    border: none;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 20px;
+    color: snow;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+}
+
+.resume_button:hover {
+    background-color: #00415c;
+}
+
+.center_contact_info{
+    margin: 20px;
+    padding-top: 20px;
+}
+
+
+.center_contact_title{
+    color: #00628B;
+    font-size: 25px;
+    font-weight: 100;
+    
+    padding-bottom: 4px;
+}
+
+/*
+.mdl-card--horizontal {
+  flex-direction: column;
+  height: 1vh;  1 
+  padding-left: 150px;
+  width: 100%;
+  
+  .mdl-card__media {
+    left: 0;
+    position: absolute;
+    width: 150px;
+  }
+  
+  .mdl-card__supporting-text {
+    flex: 1 1 auto;
+    width: auto;
+  }
+}
+
+.mdl-card--horizontal-2 {
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-height: 0px;
+  
+  .mdl-card__title {
+    align-items: flex-start;
+    flex-direction: column;
+    flex: 1 auto;
+    float: left;
+  }
+  .mdl-card__title-text {
+    align-self: flex-start;
+  }
+  .mdl-card__media {
+    flex: 0 auto; 
+    float: right;
+    height: 112px;
+    margin: 16px 16px 0 0;
+    width: 112px;
+  }
+  .mdl-card__actions {
+    clear: both;
+    flex: 1 auto; 
+  }
+}
+*/
+
+
+.chosen{
+
+    text-decoration: underline overline;
+}
+
+
+
+
+
+
+
+
+
+
